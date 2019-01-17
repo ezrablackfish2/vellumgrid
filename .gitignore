@@ -1,0 +1,9 @@
+/build/
+/out/
+/out-local/
+*.o
+*.a
+*.profraw
+crash-*
+leak-*
+timeout-*
