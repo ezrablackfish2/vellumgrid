@@ -1,0 +1,8 @@
+language: c++
+project: vellumgrid
+fuzz_targets:
+  - document_job_fuzzer
+  - render_plan_fuzzer
+  - edit_replay_fuzzer
+  - resource_pressure_fuzzer
+seed_corpus: corpus
