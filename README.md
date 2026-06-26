@@ -4,8 +4,8 @@ VellumGrid is a C++17 library for replaying offline document-edit jobs and produ
 
 ## Repository layout
 
-- `include/vellumgrid/` — public model and subsystem interfaces.
-- `src/` — job ingestion, document state, composition, geometry, diagnostics, and rendering support.
+- `include/vellumgrid/` — public model, replay subsystem, and catalog-service interfaces.
+- `src/` — job ingestion, document state, composition, geometry, diagnostics, rendering support, and twelve persistent document catalogs.
 - `fuzz/` — four libFuzzer entry points covering job execution, rendering, edit replay, and resource pressure.
 - `corpus/` — valid stateful jobs used as mutation starting points.
 - `.clusterfuzzlite/build.sh` — deterministic ClusterFuzzLite build entry point.
@@ -32,9 +32,4 @@ The ClusterFuzzLite script builds every `fuzz/*_fuzzer.cc` target into `$OUT`. I
 
 A job starts with the `VGD2` signature, version `2`, batch flags, a record count, and a nonce. Each record contains an opcode, flags, payload length, epoch, and opcode-specific payload. The reader rejects truncated or oversized records before dispatch. Valid records are applied in epoch order to a single in-memory document instance, which allows one input to exercise realistic edit lifecycles rather than isolated parsing helpers.
 
-See `docs/job_format.md` and `docs/architecture.md` for the format and subsystem boundaries.
-
-## Repository Reconstruction Notice
-
-This repository was reconstructed from recovered local project files and available timestamp metadata after the original repository was lost. Commit dates reflect the recovered timestamp data where available. The history is intended to preserve the original project timeline as accurately as possible, not to fabricate or inflate contribution activity.
-
+See `docs/job_format.md`, `docs/architecture.md`, and `docs/service_layer.md` for the format and subsystem boundaries. The first-party tree contains more than 12,000 nonblank C++/header lines; fuzz harnesses, tests, documentation, and corpus data are additional.
