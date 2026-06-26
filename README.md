@@ -128,7 +128,3 @@ The ClusterFuzzLite-compatible build is deterministic and uses only files alread
 ## Limitations
 
 VellumGrid is not a graphical editor and does not rasterize final PDF or image output. It models document state, composition decisions, resource ownership, and render planning. A host application is responsible for UI, persistent storage, font discovery, image decoding, and final export.
-
-## License
-
-See [`LICENSE`](LICENSE).
