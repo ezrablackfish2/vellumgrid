@@ -1,0 +1,13 @@
+language: c++
+main_repo: vellumgrid
+sanitizer:
+  - address
+fuzzing_engines:
+  - libfuzzer
+architectures:
+  - x86_64
+fuzz_targets:
+  - document_job_fuzzer
+  - render_plan_fuzzer
+  - edit_replay_fuzzer
+  - resource_pressure_fuzzer
